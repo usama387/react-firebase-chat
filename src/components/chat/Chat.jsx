@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./chat.css";
 import EmojiPicker from "emoji-picker-react";
 
@@ -16,6 +16,14 @@ const Chat = () => {
     setText((prev) => prev + e.emoji);
     setOpen(false);
   };
+
+  // storing endRef in useRef
+  const endRef = useRef(null);
+
+  // passing into useEffect to execute one and scroll
+  useEffect(() => {
+    endRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, []);
 
   return (
     <div className="chat">
@@ -54,6 +62,32 @@ const Chat = () => {
             <span>1 min ago</span>
           </div>
         </div>
+        <div className="message own">
+          <div className="texts">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <span>1 min ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <span>1 min ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <span>1 min ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <div className="texts">
+            <p>Lorem ipsum dolor sit amet.</p>
+            <span>1 min ago</span>
+          </div>
+        </div>
+        {/* for auto scroll effect */}
+        <div ref={endRef}></div>
       </div>
 
       {/* Text and emoji and files send logic */}
