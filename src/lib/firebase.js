@@ -1,7 +1,7 @@
 // firebase config file
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFireStore } from "firebase/firestore";
+import { getFirestore  } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 
@@ -22,7 +22,7 @@ const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 
 // exporting firebase db services
-export const database = getFireStore()
+export const database = getFirestore()
 
 // exporting firebase storage services for uploading files and getting url back
 export const storage = getStorage()
