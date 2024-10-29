@@ -17,7 +17,7 @@ const App = () => {
     // by passing auth to this method it returns the user
     const unSub = onAuthStateChanged(auth, (user) => {
       // whenever the state changes fetch function is called by passing its uid in zustand config in useUserStore.js
-      fetchUserInfo(user.uid);
+      fetchUserInfo(user?.uid);
     });
 
     return () => {
